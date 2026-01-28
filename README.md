@@ -1,4 +1,4 @@
-# JavaScript Mācību Projekts: Modulis 2 un 3
+ # tests JavaScript Mācību Projekts: Modulis 2 un 3
 
 Šis repozitorijs satur manus mācību darbus JavaScript programmēšanas pamatos. Projekts ir sadalīts moduļos, lai skaidri parādītu progresu no vienkāršas izvades līdz kompleksai loģikai un mērvienību konvertācijai.
 
