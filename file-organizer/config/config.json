@@ -1,0 +1,23 @@
+{
+  "rules": {
+    "Attēli": {
+      "extensions": [".jpg", ".jpeg", ".png", ".gif", ".svg", ".webp", ".bmp"],
+      "patterns": ["^screenshot", "^img_"]
+    },
+    "Dokumenti": {
+      "extensions": [".pdf", ".txt", ".docx", ".xlsx", ".pptx", ".csv"],
+      "patterns": []
+    },
+    "Video": {
+      "extensions": [".mp4", ".avi", ".mkv", ".mov", ".webm"],
+      "patterns": []
+    },
+    "Kods": {
+      "extensions": [".js", ".html", ".css", ".py", ".json", ".md"],
+      "patterns": []
+    }
+  },
+  "defaultCategory": "Citi",
+  "ignoredFiles": [".gitignore", ".DS_Store", "Thumbs.db"],
+  "ignoredExtensions": [".tmp", ".crdownload"]
+}
