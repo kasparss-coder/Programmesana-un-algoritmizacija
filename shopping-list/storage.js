@@ -39,4 +39,18 @@ const savePrices = (prices) => {
     fs.writeFileSync(PRICES_FILE, JSON.stringify(prices, null, 2));
 };
 
-module.exports = { loadList, saveList, loadPrices, savePrices };
+/**
+ * Saglabā noformēto tekstu .txt failā.
+ * @param {string} content - Teksts, ko saglabāt.
+ */
+const saveToTxt = (content) => {
+    fs.writeFileSync('shopping-list.txt', content, 'utf8');
+};
+
+module.exports = { 
+    loadList, 
+    saveList, 
+    loadPrices, 
+    savePrices, 
+    saveToTxt 
+};

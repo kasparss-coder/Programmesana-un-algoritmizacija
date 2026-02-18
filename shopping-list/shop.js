@@ -7,7 +7,9 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-// Palīgfunkcija readline pārvēršanai par Promise, lai varētu lietot await
+/**
+ * Palīgfunkcija readline pārvēršanai par Promise (lai lietotu await).
+ */
 const askQuestion = (query) => new Promise((resolve) => rl.question(query, resolve));
 
 const args = process.argv.slice(2);
@@ -23,7 +25,7 @@ async function main() {
             const qty = parseFloat(args[2]);
 
             if (!name || isNaN(qty) || qty <= 0) {
-                console.error('Kļūda: Norādi nosaukumu un derīgu daudzumu! (Piemēram: node shop.js add Maize 2)');
+                console.error('Kļūda: Norādi nosaukumu un derīgu daudzumu!');
                 process.exit(1);
             }
 
@@ -51,11 +53,9 @@ async function main() {
                 process.exit(1);
             }
 
-            // Saglabājam cenu datubāzē (lowercase meklēšanai, bet vārdu oriģinālu)
             pricesDB[name.toLowerCase()] = price;
             storage.savePrices(pricesDB);
 
-            // Pievienojam sarakstam
             list.push({ name, qty, price });
             storage.saveList(list);
 
@@ -81,8 +81,18 @@ async function main() {
             console.log('✓ Saraksts notīrīts!');
             break;
 
+        case 'export':
+            if (list.length === 0) {
+                console.log('Saraksts ir tukšs, nav ko eksportēt!');
+            } else {
+                const formattedText = utils.formatListToText(list);
+                storage.saveToTxt(formattedText);
+                console.log('✓ Saraksts veiksmīgi eksportēts uz shopping-list.txt!');
+            }
+            break;
+
         default:
-            console.log('Pieejamās komandas: add [vārds] [daudzums], list, total, clear');
+            console.log('Pieejamās komandas: add [vārds] [daudzums], list, total, clear, export');
     }
     rl.close();
 }

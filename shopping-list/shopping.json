@@ -8,5 +8,15 @@
     "name": "Maize",
     "qty": 3,
     "price": 2
+  },
+  {
+    "name": "Piens",
+    "qty": 2,
+    "price": 1
+  },
+  {
+    "name": "Maize",
+    "qty": 1,
+    "price": 2
   }
 ]
